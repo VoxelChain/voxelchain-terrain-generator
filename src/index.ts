@@ -41,7 +41,7 @@ export class TerrainGenerator {
   /**
    * The amount of states
    */
-  private _states: number = 0;
+  private _states: number = 4;
   /**
    * The resolution of the terrain
    */
@@ -61,13 +61,11 @@ export class TerrainGenerator {
 
   /**
    * Contructs a new terrain generator
-   * @param states - The amount of states to use
    * @param resolution - The resolution of the terrain grid
    */
-  public constructor(states: number, resolution: number) {
+  public constructor(resolution: number) {
     this._dim = resolution + 1;
     this._resolution = resolution;
-    this._states = states;
   }
 
   /**

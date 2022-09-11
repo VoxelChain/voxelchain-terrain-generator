@@ -17,9 +17,8 @@ import {TerrainGenerator} from "voxelchain-terrain-generator";
 
 // Generate terrain
 const lambda = 0.3;
-const stateCount = 4; // Currently fixed to 4
 const resolution = 128;
-const terrain = new TerrainGenerator(stateCount, resolution);
+const terrain = new TerrainGenerator(resolution);
 // Generate the terrain
 terrain.generate(lambda, () => {
   // Plug in a random number generator (can also be seeded)
