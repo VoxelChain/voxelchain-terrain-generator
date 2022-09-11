@@ -27,12 +27,12 @@ const FACE_8_RULE = [[1, 1, 0], [0, 0, 0], [0, 2, 0], [2, 0, 0], [2, 2, 0], [1, 
 /**
  * Type representing a user-defined RNG callback function
  */
-type TRandomCallback = ()=> number;
+export type TRandomCallback = ()=> number;
 
 /**
  * Class representing a cellular automata based terrain generator
  */
-export default class TerrainGenerator {
+export class TerrainGenerator {
 
   /**
    * The dimension of the terrain
@@ -116,7 +116,6 @@ export default class TerrainGenerator {
 
   /**
    * Returns a random seeded number
-   * @internal
    */
   private _random(): number {
     return this._randomCallback();
@@ -125,7 +124,6 @@ export default class TerrainGenerator {
   /**
    * Generates rules based on the provided parameters
    * @param lambda - The lambda factor to use
-   * @internal
    */
   private _generateRules(lambda: number): void {
     for (let aa = 0; aa < 9; ++aa) {
@@ -172,7 +170,6 @@ export default class TerrainGenerator {
 
   /**
    * Initializes the initial state
-   * @internal
    */
   private _initState(): void {
     for (let zz = 0; zz < this._dim; ++zz) {
@@ -186,7 +183,6 @@ export default class TerrainGenerator {
 
   /**
    * Evalulates the state
-   * @internal
    */
   private _evalState(): void {
     const dim = Math.log2(this._resolution);
@@ -200,7 +196,6 @@ export default class TerrainGenerator {
    * Evaluates a state dimension
    * @param w - State dimension
    * @param h - State half dimension
-   * @internal
    */
   private _evalStateDimension(w: number, h: number): void {
     const d = [0, h, w, -h, -w, w + h];
@@ -242,7 +237,6 @@ export default class TerrainGenerator {
    * @param y - The y-axis coordinate to evaluate at
    * @param z - The z-axis coordinate to evaluate at
    * @param dim - The dimension to evaluate
-   * @internal
    */
   private _evalStateRule(table: number[][], rule: number[][][][], x: number, y: number, z: number, dim: number[]): void {
     const rules = this._ruleBuffer;
