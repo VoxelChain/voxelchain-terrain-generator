@@ -18,7 +18,7 @@ import {TerrainGenerator} from "voxelchain-terrain-generator";
 // Generate terrain
 const lambda = 0.3;
 const stateCount = 4; // Currently fixed to 4
-const resultion = 128;
+const resolution = 128;
 const terrain = new TerrainGenerator(stateCount, resolution);
 // Generate the terrain
 terrain.generate(lambda, () => {
@@ -26,9 +26,9 @@ terrain.generate(lambda, () => {
   return Math.random();
 });
 // Do something with resulting terrain data
-for (let z = 0; z < depth; ++z) {
-  for (let y = 0; y < height; ++y) {
-    for (let x = 0; x < width; ++x) {
+for (let z = 0; z < resolution; ++z) {
+  for (let y = 0; y < resolution; ++y) {
+    for (let x = 0; x < resolution; ++x) {
       const state = terrain.getState(x, y, z);
       // If state is positive, then it's a solid grid cell
       if (state > 0) {
